@@ -1,0 +1,26 @@
+{
+  "name": "data-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./dist/server.js",
+    "dev": "env-cmd -f ./env/backend.env nodemon ./src/server.ts",
+    "build": "tsc -p ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "typescript": "^4.3.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.5",
+    "@types/express": "^4.17.12",
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.7",
+    "ts-node": "^10.0.0"
+  }
+}
