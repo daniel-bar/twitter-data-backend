@@ -2,7 +2,7 @@ import path from 'path';
 
 import express from 'express';
 
-// import dataRouter from './router/config';
+import router from './router/user';
 
 const app: express.Application = express();
 
@@ -31,6 +31,6 @@ app.get(
     ) => res.status(200).send('Data server is alive'),
 );
 
-// app.use('/data', dataRouter);
+app.use('/user', router);
 
 export default app;

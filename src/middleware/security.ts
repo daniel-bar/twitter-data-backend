@@ -30,12 +30,12 @@ const bodyKeys = (fields: IBodyField[]) => {
             const fieldsList = invalidFields.map((field: IBodyField) => `${field.key} (${field.type})`);
 
             ServerGlobal.getInstance().logger.error(
-                `Got a requrst for ${req.url} but missed the body keys: ${fieldsList.join(', ')}`
+                `Got a request for ${req.url} but missed the body keys: ${fieldsList.join(', ')}`
             );
 
             return res.status(406).json({
                 success: false,
-                message:  `Please provide ${fieldsList.join(', ')}.`,
+                message: `Please provide ${fieldsList.join(', ')}.`,
             });
         }
 

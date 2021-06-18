@@ -1,6 +1,7 @@
 import express from 'express';
 
 import { IServerResponse } from '../../shared/response';
+import { Status } from '../../shared/status';
 
 type IGetUsersResponse = express.Response<
     IServerResponse & Readonly<Partial<{
@@ -8,20 +9,22 @@ type IGetUsersResponse = express.Response<
     }>>
 >;
 
-type IGetStatusesResponse = express.Response<
-    IServerResponse & Readonly<Partial<{
-        data: ReadonlyArray<{ statuses: string[] }>;
-    }>>
->;
-
 type IGetUserResponse = express.Response<
     IServerResponse & Readonly<Partial<{
-        data: ReadonlyArray<{ id: string }>;
+        data: Readonly<{
+            username: string;
+            status: Status;
+            description: string;
+            profile_picture_link: string;
+            following_count: number;
+            followers_count: number;
+            most_common_word: string;
+            retweets_count: number;
+        }>;
     }>>
 >;
 
 export {
     IGetUsersResponse,
-    IGetStatusesResponse,
     IGetUserResponse,
 };

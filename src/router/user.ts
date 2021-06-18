@@ -4,9 +4,8 @@ import { bodyKeys } from '../middleware/security';
 
 import {
     getUsers,
-    getStatuses,
-    getUser,
-} from '../controller/backoffice-user';
+    // getUser,
+} from '../controller/user';
 
 const router = express.Router();
 
@@ -18,14 +17,9 @@ router.post(
     getUsers,
 );
 
-router.get(
-    '/',
-    getStatuses,
-);
-
-router.get(
-    '/user/:id',
-    getUser,
-)
+// router.get(
+//     '/user/:id',
+//     getUser,
+// );
 
 export default router;

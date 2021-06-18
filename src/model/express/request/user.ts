@@ -1,14 +1,8 @@
 import express from 'express';
 
 interface IGetUsersRequest extends express.Request {
-    readonly body: ReadonlyArray<{
-        usernames: string[];
-    }>;
-}
-
-interface IGetStatusesRequest extends express.Request {
-    readonly body: ReadonlyArray<{
-        statuses: string[];
+    readonly body: Readonly<{
+        usernames: ReadonlyArray<string>;
     }>;
 }
 
@@ -20,6 +14,5 @@ interface IGetUserRequest extends express.Request {
 
 export {
     IGetUsersRequest,
-    IGetStatusesRequest,
     IGetUserRequest,
 };
