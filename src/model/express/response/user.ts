@@ -3,15 +3,14 @@ import express from 'express';
 import { IServerResponse } from '../../shared/response';
 import { Status } from '../../shared/status';
 
-type IGetUsersResponse = express.Response<
-    IServerResponse & Readonly<Partial<{
-        data: Readonly<{ usernames: string[] }>;
-    }>>
->;
+type IStoreUsersResponse = express.Response<
+    IServerResponse & Partial<{
+        data: { usernames: string[] };
+    }>>;
 
 type IGetUserResponse = express.Response<
-    IServerResponse & Readonly<Partial<{
-        data: Readonly<{
+    IServerResponse & Partial<{
+        data?: {
             username: string;
             status: Status;
             description: string;
@@ -20,11 +19,29 @@ type IGetUserResponse = express.Response<
             followers_count: number;
             most_common_word: string;
             retweets_count: number;
+        }
+    }>>;
+
+type IGetUsersResponse = express.Response<
+    IServerResponse & Partial<{
+        data?: Array<{
+            id: number;
+            username: string;
+            status: Status;
         }>;
-    }>>
->;
+    }>>;
+
+type IGetStatusesResponse = express.Response<
+    IServerResponse & Partial<{
+        data?: Array<{
+            id: number;
+            status: Status;
+        }>;
+    }>>;
 
 export {
-    IGetUsersResponse,
+    IStoreUsersResponse,
     IGetUserResponse,
+    IGetUsersResponse,
+    IGetStatusesResponse,
 };

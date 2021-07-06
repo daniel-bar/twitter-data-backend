@@ -3,8 +3,10 @@ import express from 'express';
 import { bodyKeys } from '../middleware/security';
 
 import {
+    storeUsers,
+    getUser,
     getUsers,
-    // getUser,
+    getStatuses,
 } from '../controller/user';
 
 const router = express.Router();
@@ -12,14 +14,24 @@ const router = express.Router();
 router.post(
     '/',
     bodyKeys([
-        { key: 'username', type: 'string' },
+        { key: 'usernames', type: 'object' },
     ]),
+    storeUsers,
+);
+
+router.get(
+    '/:id',
+    getUser,
+);
+
+router.get(
+    '/',
     getUsers,
 );
 
-// router.get(
-//     '/user/:id',
-//     getUser,
-// );
+router.get(
+    '/status',
+    getStatuses,
+);
 
 export default router;

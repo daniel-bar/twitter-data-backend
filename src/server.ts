@@ -60,7 +60,4 @@ server.on('error', onError);
 server.on('listening', onListening);
 server.listen(port);
 
-// Init global set up
-ServerGlobal.getInstance();
-
 ServerGlobal.getInstance().logger.info(`Server is running on port ${process.env.PORT}`);

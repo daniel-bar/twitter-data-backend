@@ -1,18 +1,24 @@
 import express from 'express';
 
-interface IGetUsersRequest extends express.Request {
+interface IStoreUsersRequest extends express.Request {
     readonly body: Readonly<{
         usernames: ReadonlyArray<string>;
     }>;
 }
 
 interface IGetUserRequest extends express.Request {
-    readonly body: Readonly<{
+    readonly params: Readonly<{
         id: string;
     }>;
 }
 
+interface IGetUsersRequest extends express.Request { }
+
+interface IGetStatusesRequest extends express.Request { }
+
 export {
-    IGetUsersRequest,
+    IStoreUsersRequest,
     IGetUserRequest,
+    IGetUsersRequest,
+    IGetStatusesRequest,
 };

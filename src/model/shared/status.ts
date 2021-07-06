@@ -1,7 +1,7 @@
 enum Status {
     Intiated,
     Pending,
-    Completed,
+    Success,
     Failed,
 };
 
